@@ -35,7 +35,9 @@ class Uploader
     {
         if ( true === $this->isUploaded() ) {    //Проверка - был ли загружен файл
 
-            if (in_array( mime_content_type( $_FILES[$this->upl]['tmp_name'] ), $types )){ //Проверка удовлетворяет ли тип загружаемого файла списку разрешённых типов
+         //   if (in_array( mime_content_type( $_FILES[$this->upl]['tmp_name'] ), $types )){
+                $type = $_FILES[$this->upl]['type'];    //Проверка удовлетворяет ли тип загружаемого файла списку разрешённых типов
+                if (in_array($type, $types )){
 
                 if (file_exists($path . $_FILES[$this->upl]['name'] ) ){      //Проверка наличия файла с таким же именем
                     $i = 1;
