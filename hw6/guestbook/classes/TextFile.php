@@ -3,14 +3,20 @@
 class TextFile      //2. Выносим часть функционала в родительский класс TextFile
 {
     protected $data;    //защищённое свойство для хранения данных
+    public $way;
     public $text;
 
     /*1.1 В конструктор передается путь до файла с данными гостевой книги,
     в нём же происходит чтение данных из ней (используйте защищенное свойство объекта для хранения данных)*/
-    public function __construct()
+    public function __construct($way)
     {
-        $lines = file(__DIR__ . '/../guestbook1.txt');
-        $this->data = $lines;
+        $this->way = $way;
+        if ( is_readable($this->way) ){
+            $lines = file($this->way, FILE_IGNORE_NEW_LINES);
+            $this->data = $lines;
+        }else {
+            $this->data =[];
+        }
     }
 
     //1.2 Метод getData() возвращает массив записей гостевой книги
@@ -34,7 +40,7 @@ class TextFile      //2. Выносим часть функционала в р�
     public function save()
     {
         //$this->data = $text . PHP_EOL;
-        file_put_contents(__DIR__ . '/../guestbook1.txt', $this->data);
+        file_put_contents($this->way, implode(PHP_EOL, $this->data) );
     }
 }
 

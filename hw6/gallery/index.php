@@ -7,14 +7,14 @@ require (__DIR__ . '/Uploader.php');
 //$password = $_POST['password'];
 include_once (__DIR__ . '/functions.php');
 
-if (null !== getCurrentUser()) {
-    echo 'Здравствуйте ' . getCurrentUser() . '. Вы вошли в фотогалерею!';
-    ?>
+    if (null !== getCurrentUser()) {
+            ?>
     <html>
     <head>
         <title>PHP-1</title>
     </head>
     <body>
+    <h5>Здравствуйте <?php echo getCurrentUser(); ?>. Вы вошли в фотогалерею!</h5>
     <h1>PHP</h1>
     <h2>6 урок</h2>
     <h2>Классы и объекты. Введение в ООП.</h2>
@@ -48,7 +48,6 @@ if (null !== getCurrentUser()) {
 
     $gal->isUploaded();
     $gal->upload(__DIR__ . '/images/', ['image/jpg', 'image/png', 'image/jpeg']); //в качестве аргументов передаём путь до файла и тип загружаемого файла
-
     ?>
 
     <br><br>
@@ -63,7 +62,6 @@ if (null !== getCurrentUser()) {
     <?php
     //  echo password_hash('891', PASSWORD_DEFAULT);//PASSWORD_DEFAULT - берёт наиболее стойкий по умолчанию алгоритм
     //  $hash = '$2y$10$ZyYlqBMmi9qEWcgnR10pqOCxRQABUoDhu6mHmm8iOzlHPv//RBosS';
-
 }else {
     header('Location: /gallery/login.php');
 }
