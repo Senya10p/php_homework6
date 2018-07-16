@@ -7,7 +7,7 @@ require (__DIR__ . '/Uploader.php');
 //$password = $_POST['password'];
 include_once (__DIR__ . '/functions.php');
 
-    if (null !== getCurrentUser()) {
+    if ( null !== getCurrentUser() ) {
             ?>
     <html>
     <head>
@@ -54,7 +54,7 @@ include_once (__DIR__ . '/functions.php');
     <a href="/gallery/gallery.php">Перейти в фотогалерею</a>
     <br><br>
 
-    <a href="/gallery/login.php?do=logout">Выход</a>
+    <a href="/gallery/logout.php">Выход</a>
     <br><br>
     <a href="/index.php">Перейти на главную страницу</a>
     </body>

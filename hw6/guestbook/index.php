@@ -2,8 +2,6 @@
 
 require __DIR__ . '/classes/GuestBook.php';
 
-
-
 ?>
 <html>
 <head>

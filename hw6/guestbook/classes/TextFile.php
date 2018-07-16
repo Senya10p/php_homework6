@@ -12,9 +12,9 @@ class TextFile      //2. Выносим часть функционала в р�
     {
         $this->way = $way;
         if ( is_readable($this->way) ){
-            $lines = file($this->way, FILE_IGNORE_NEW_LINES);
+            $lines = file( $this->way, FILE_IGNORE_NEW_LINES );
             $this->data = $lines;
-        }else {
+        } else {
             $this->data =[];
         }
     }
@@ -40,7 +40,7 @@ class TextFile      //2. Выносим часть функционала в р�
     public function save()
     {
         //$this->data = $text . PHP_EOL;
-        file_put_contents($this->way, implode(PHP_EOL, $this->data) );
+        file_put_contents( $this->way, implode(PHP_EOL, $this->data) );
     }
 }
 
